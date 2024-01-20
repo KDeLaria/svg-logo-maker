@@ -1,5 +1,6 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
+const shapes = require("./lib/shapes.js")
 
 // Ask the user questions about the logo
 function askLogoQuestions () {
@@ -38,9 +39,10 @@ function writeToFile(fileName, data) {
     );
 }
 
-// Returns a rendered shape object
+// Creates a new shape object and
+// returns a rendered shape object
 function getShape (shape, color) {
-    let renderedShape = "";
+    let renderedShape;
     if (shape === "circle") {
         renderedShape = new Circle;
     }
@@ -58,9 +60,9 @@ function getShape (shape, color) {
 function prepLogoObj (logoResponse) {
     return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
 
-    ${getShape(logoResponse.shapeColor, logoResponse.shapeColor)}
+    ${getShape(logoResponse.shape, logoResponse.shapeColor)}
   
-    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${logoResponse.textColor}">${logoResponse.text}</text>
+    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${logoResponse.textColor}">${logoResponse.text.substr(0,3)}</text>
   
 </svg>`;
 }
