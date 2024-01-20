@@ -63,5 +63,6 @@ function prepLogoObj () {
 }
 
 function init () {
-
+    askLogoQuestions();
 }
+init();
