@@ -32,16 +32,30 @@ inquirer.prompt([
 
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) =>
-        err ? console.error(err) : console.log('Logo file has been created!')
+        err ? console.error(err) : console.log('Generated logo.svg')
     );
+}
+function getShape (shape, color) {
+    let renderedShape = "";
+    if (shape === "circle") {
+        renderedShape = new Circle;
+    }
+    else if (shape === "triangle") {
+        renderedShape = new Triangle;
+    }
+    else if (shape === "square"){
+        renderedShape = new Square;
+    }
+    renderedShape.setColor(color);
+    return renderedShape.render();
 }
 
 function prepLogoObj () {
     return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
 
-    <circle cx="150" cy="100" r="80" fill="green" />
+    ${getShape(response.shapeColor, response.shapeColor)}
   
-    <text x="150" y="125" font-size="60" text-anchor="middle" fill="white">SVG</text>
+    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${response.textColor}">${response.text}</text>
   
 </svg>`;
 }
