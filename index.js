@@ -1,6 +1,7 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
+// Ask the user questions about the logo
 function askLogoQuestions () {
 inquirer.prompt([
     {
@@ -30,11 +31,14 @@ inquirer.prompt([
     writeToFile("logo.svg", logoData);
 });
 
+// Creates a file and writes the data to file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) =>
         err ? console.error(err) : console.log('Generated logo.svg')
     );
 }
+
+// Returns a rendered shape object
 function getShape (shape, color) {
     let renderedShape = "";
     if (shape === "circle") {
@@ -50,6 +54,7 @@ function getShape (shape, color) {
     return renderedShape.render();
 }
 
+// Creates the svg object ready to be written to file
 function prepLogoObj () {
     return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
 
