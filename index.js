@@ -55,12 +55,12 @@ function getShape (shape, color) {
 }
 
 // Creates the svg object ready to be written to file
-function prepLogoObj () {
+function prepLogoObj (logoResponse) {
     return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
 
-    ${getShape(response.shapeColor, response.shapeColor)}
+    ${getShape(logoResponse.shapeColor, logoResponse.shapeColor)}
   
-    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${response.textColor}">${response.text}</text>
+    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${logoResponse.textColor}">${logoResponse.text}</text>
   
 </svg>`;
 }
