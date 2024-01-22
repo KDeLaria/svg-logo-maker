@@ -1,6 +1,6 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-const shapes = require("./lib/shapes.js")
+import {Shape, Circle, Triangle, Square} from "./lib/shapes.js";
 
 // Ask the user questions about the logo
 function askLogoQuestions () {
@@ -45,12 +45,15 @@ function getShape (shape, color) {
     let renderedShape;
     if (shape === "circle") {
         renderedShape = new Circle;
+        // `<text x="147" y="117" font-size="60" text-anchor="middle" fill="${textColor}">`
     }
     else if (shape === "triangle") {
         renderedShape = new Triangle;
+        // `<text x="150" y="170" font-size="60" text-anchor="middle" fill="${textColor}">`
     }
     else if (shape === "square"){
         renderedShape = new Square;
+        // `<text x="125" y="112" font-size="60" text-anchor="middle" fill="${textColor}">`
     }
     renderedShape.setColor(color);
     return renderedShape.render();
@@ -62,7 +65,7 @@ function prepLogoObj (logoResponse) {
 
     ${getShape(logoResponse.shape, logoResponse.shapeColor)}
   
-    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${logoResponse.textColor}">${logoResponse.text.substr(0,3)}</text>
+    <text x="140" y="133" font-size="60" text-anchor="middle" fill="${logoResponse.textColor}">${logoResponse.text.substr(0,3)}</text>
   
 </svg>`;
 }
