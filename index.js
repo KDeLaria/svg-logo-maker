@@ -1,6 +1,9 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
-import {Shape, Circle, Triangle, Square} from "./lib/shapes.js";
+const Shape = require("./lib/shapes");
+const Circle = require("./lib/circle");
+const Triangle = require("./lib/triangle");
+const Square = require("./lib/square");
 
 // Ask the user questions about the logo
 function askLogoQuestions () {
