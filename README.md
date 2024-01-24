@@ -1,5 +1,8 @@
 # SVG Logo Maker
-![SVG Logo Maker](./assets/images/screenshot.png)
+![SVG Logo](./examples/logoSample.svg)
+
+View the [walkthrough](https://drive.google.com/file/d/1x6gdig5FqNjiEPipuhoQ3g_bhL6ftgT_/view?usp=sharing).
+
 
 ## Description
 
