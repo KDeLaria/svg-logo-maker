@@ -31,46 +31,32 @@ inquirer.prompt([
     }
 ])
 .then(response =>{
-    const logoData = prepLogoObj(response);
+    const logoData = getLogo(response);
     writeToFile("logo.svg", logoData);
 });
 
 // Creates a file and writes the data to file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) =>
-        err ? console.error(err) : console.log('Generated logo.svg')
-    );
+        err ? console.error(err) : console.log('Generated logo.svg'));
 }
 
-// Creates a new shape object and
-// returns a rendered shape object
-function getShape (shape, color) {
+// Creates a new logo out of the responses
+// by creating a new shape object
+function getLogo (data) {
     let renderedShape;
-    if (shape === "circle") {
+    if (data.shape === "circle") {
         renderedShape = new Circle;
-        // `<text x="147" y="117" font-size="60" text-anchor="middle" fill="${textColor}">`
     }
-    else if (shape === "triangle") {
+    else if (data.shape === "triangle") {
         renderedShape = new Triangle;
-        // `<text x="150" y="170" font-size="60" text-anchor="middle" fill="${textColor}">`
     }
-    else if (shape === "square"){
+    else if (data.shape === "square"){
         renderedShape = new Square;
-        // `<text x="125" y="112" font-size="60" text-anchor="middle" fill="${textColor}">`
     }
-    renderedShape.setColor(color);
-    return renderedShape.render();
-}
-
-// Creates the svg object ready to be written to file
-function prepLogoObj (logoResponse) {
-    return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">
-
-    ${getShape(logoResponse.shape, logoResponse.shapeColor)}
-  
-    <text x="140" y="133" font-size="60" text-anchor="middle" fill="${logoResponse.textColor}">${logoResponse.text.substr(0,3)}</text>
-  
-</svg>`;
+    renderedShape.setColor(data.shapeColor);
+    renderedShape.setText(data.text, data.textColor);
+    return renderedShape.renderSVG();
 }
 
 }
