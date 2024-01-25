@@ -46,16 +46,14 @@ function writeToFile(fileName, data) {
 function getLogo (data) {
     let renderedShape;
     if (data.shape === "circle") {
-        renderedShape = new Circle;
+        renderedShape = new Circle(data.shapeColor, data.text, data.textColor);
     }
     else if (data.shape === "triangle") {
-        renderedShape = new Triangle;
+        renderedShape = new Triangle(data.shapeColor, data.text, data.textColor);
     }
     else if (data.shape === "square"){
-        renderedShape = new Square;
+        renderedShape = new Square(data.shapeColor, data.text, data.textColor);
     }
-    renderedShape.setColor(data.shapeColor);
-    renderedShape.setText(data.text, data.textColor);
     return renderedShape.renderSVG();
 }
 
