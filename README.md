@@ -1,6 +1,6 @@
 # SVG Logo Maker
 
-![SVG Logo](./examples/logoSample2.svg)
+![SVG Logo](./examples/logoSample3.svg)
 
 View the [walkthrough](https://drive.google.com/file/d/1Bl2KxUGLT5WLMLd0TSMdwyjaHlqlNSEh/view?usp=sharing).
 
